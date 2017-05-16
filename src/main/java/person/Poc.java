@@ -41,7 +41,7 @@ public class Poc {
         System.out.println(text1);
         //String personStr = "{'name':"+text1+",'age':19}";
         //Person obj = JSON.parseObject(personStr, Person.class, config, Feature.SupportNonPublicField);
-        Object obj = JSON.parseObject(text1, Object.class, config);
+        Object obj = JSON.parseObject(text1, Object.class, config, Feature.SupportNonPublicField);
         //assertEquals(Model.class, obj.getClass());
 
     }
