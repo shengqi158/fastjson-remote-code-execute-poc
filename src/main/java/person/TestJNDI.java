@@ -33,9 +33,9 @@ public class TestJNDI {
         env.put(Context.PROVIDER_URL, url);
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.rmi.registry.RegistryContextFactory");
         Context context = new InitialContext(env);
-        //Object object = context.lookup("Exploit");//ok
+        Object object = context.lookup("Exploit");//ok
         Object object1 = context.lookup("rmi://127.0.0.1/Exploit");
-        //System.out.println("Object:" + object);
+        System.out.println("Object:" + object);
     }
     public static void main(String[] argv) throws NamingException {
         testRmi();
