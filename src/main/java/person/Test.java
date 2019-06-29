@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class Test extends AbstractTranslet {
     public Test() throws IOException {
+        namesArray = new String[0];
         Runtime.getRuntime().exec("calc");
     }
 
