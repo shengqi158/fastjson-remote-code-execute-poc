@@ -3,7 +3,6 @@ package person;
 import com.alibaba.fastjson.JSON;
 
 /**
- * @author liaoxinxi <liaoxinxi@kuaishou.com>
  * Created on 2019-07-21
  * 用于bypass 1.2.47，适用于低于1.2.48的版本，此poc绕过了fastjson的autotype机制，无需开启autotype，直接一招毙命
  */
